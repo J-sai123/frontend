@@ -30,11 +30,11 @@ const Index = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Signup</a>
+              <Link to="/signup" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Signup</Link>
               <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About</Link>
-              <a href="#features" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Products</a>
-              <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Pricing</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Support</a>
+              <Link to="/products" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Products</Link>
+              <Link to="/pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Pricing</Link>
+              <Link to="/support" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Support</Link>
             </div>
 
             {/* Mobile menu button */}
@@ -49,11 +49,11 @@ const Index = () => {
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-gray-200">
               <div className="flex flex-col space-y-4">
-                <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Signup</a>
+                <Link to="/signup" className="text-gray-700 hover:text-blue-600 font-medium">Signup</Link>
                 <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium">About</Link>
-                <a href="#features" className="text-gray-700 hover:text-blue-600 font-medium">Products</a>
-                <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium">Pricing</a>
-                <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Support</a>
+                <Link to="/products" className="text-gray-700 hover:text-blue-600 font-medium">Products</Link>
+                <Link to="/pricing" className="text-gray-700 hover:text-blue-600 font-medium">Pricing</Link>
+                <Link to="/support" className="text-gray-700 hover:text-blue-600 font-medium">Support</Link>
               </div>
             </div>
           )}
@@ -72,8 +72,8 @@ const Index = () => {
                 Online platform to invest in stocks, derivatives, mutual funds, and more
               </p>
               <div className="mt-8">
-                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg">
-                  Sign up now
+                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg" asChild>
+                  <Link to="/signup">Sign up now</Link>
                 </Button>
               </div>
             </div>
@@ -292,8 +292,8 @@ const Index = () => {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Open an account in just 5 minutes and start trading with India's largest stock broker.
           </p>
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg">
-            Open an account
+          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg" asChild>
+            <Link to="/signup">Open an account</Link>
           </Button>
         </div>
       </section>
@@ -322,8 +322,8 @@ const Index = () => {
               <h3 className="text-white font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
                 <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
-                <li><a href="#features" className="text-gray-400 hover:text-white transition-colors">Products</a></li>
-                <li><a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                <li><Link to="/products" className="text-gray-400 hover:text-white transition-colors">Products</Link></li>
+                <li><Link to="/pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</Link></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
               </ul>
             </div>
@@ -331,7 +331,7 @@ const Index = () => {
             <div>
               <h3 className="text-white font-semibold mb-4">Support</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact us</a></li>
+                <li><Link to="/support" className="text-gray-400 hover:text-white transition-colors">Contact us</Link></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Support portal</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Varsity</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
@@ -341,7 +341,7 @@ const Index = () => {
             <div>
               <h3 className="text-white font-semibold mb-4">Account</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Open an account</a></li>
+                <li><Link to="/signup" className="text-gray-400 hover:text-white transition-colors">Open an account</Link></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Fund transfer</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">60 day challenge</a></li>
               </ul>
