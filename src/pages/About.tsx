@@ -1,10 +1,30 @@
 
+import { Link } from "react-router-dom";
 import { TrendingUp, Shield, Users, BarChart3 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <Link to="/" className="flex items-center">
+              <img 
+                src="https://images.unsplash.com/photo-1500673922987-e212871fec22?w=40&h=40&fit=crop&crop=center" 
+                alt="Zerodha" 
+                className="h-8 w-8 rounded"
+              />
+              <span className="ml-2 text-xl font-bold text-blue-600">Zerodha</span>
+            </Link>
+            <Link to="/" className="text-gray-600 hover:text-blue-600">
+              Back to Home
+            </Link>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
       <section className="py-20 lg:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
