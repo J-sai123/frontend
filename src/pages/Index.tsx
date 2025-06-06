@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { Menu, X, TrendingUp, Shield, Users, BarChart3, PieChart, Smartphone, Globe, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -17,18 +18,20 @@ const Index = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <img 
-                src="https://images.unsplash.com/photo-1500673922987-e212871fec22?w=40&h=40&fit=crop&crop=center" 
-                alt="Zerodha" 
-                className="h-8 w-8 rounded"
-              />
-              <span className="ml-2 text-xl font-bold text-blue-600">Zerodha</span>
+              <Link to="/" className="flex items-center">
+                <img 
+                  src="https://images.unsplash.com/photo-1500673922987-e212871fec22?w=40&h=40&fit=crop&crop=center" 
+                  alt="Zerodha" 
+                  className="h-8 w-8 rounded"
+                />
+                <span className="ml-2 text-xl font-bold text-blue-600">Zerodha</span>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Signup</a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About</a>
+              <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About</Link>
               <a href="#features" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Products</a>
               <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Pricing</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Support</a>
@@ -47,7 +50,7 @@ const Index = () => {
             <div className="md:hidden py-4 border-t border-gray-200">
               <div className="flex flex-col space-y-4">
                 <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Signup</a>
-                <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium">About</Link>
                 <a href="#features" className="text-gray-700 hover:text-blue-600 font-medium">Products</a>
                 <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium">Pricing</a>
                 <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Support</a>
@@ -301,12 +304,14 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1500673922987-e212871fec22?w=40&h=40&fit=crop&crop=center" 
-                  alt="Zerodha" 
-                  className="h-8 w-8 rounded"
-                />
-                <span className="ml-2 text-xl font-bold text-white">Zerodha</span>
+                <Link to="/" className="flex items-center">
+                  <img 
+                    src="https://images.unsplash.com/photo-1500673922987-e212871fec22?w=40&h=40&fit=crop&crop=center" 
+                    alt="Zerodha" 
+                    className="h-8 w-8 rounded"
+                  />
+                  <span className="ml-2 text-xl font-bold text-white">Zerodha</span>
+                </Link>
               </div>
               <p className="text-gray-400">
                 India's largest stock broker offering the lowest, most transparent pricing with better customer support.
@@ -316,9 +321,9 @@ const Index = () => {
             <div>
               <h3 className="text-white font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Products</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
+                <li><a href="#features" className="text-gray-400 hover:text-white transition-colors">Products</a></li>
+                <li><a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
               </ul>
             </div>
