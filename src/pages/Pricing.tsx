@@ -87,7 +87,7 @@ const Charges = () => {
 </section>
 
       {/* Detailed Charges Table */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-lg shadow-sm border border-border overflow-hidden">
             <table className="w-full">
