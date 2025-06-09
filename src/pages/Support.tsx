@@ -6,28 +6,56 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(20, "Message must be at least 20 characters"),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const Support = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    setSubmitError(null);
+    try {
+      // Add your API call here
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+      setSubmitSuccess(true);
+      form.reset();
+    } catch (error) {
+      setSubmitError('Failed to submit form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // ...existing return statement and JSX...
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex items-center">
-              <img 
-                src="https://images.unsplash.com/photo-1500673922987-e212871fec22?w=40&h=40&fit=crop&crop=center" 
-                alt="Zerodha" 
-                className="h-8 w-8 rounded"
-              />
-              <span className="ml-2 text-xl font-bold text-blue-600">Zerodha</span>
-            </Link>
-            <Link to="/" className="text-gray-600 hover:text-blue-600">
-              Back to Home
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="py-20 bg-gray-50">
@@ -91,54 +119,7 @@ const Support = () => {
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Send us a message
-            </h2>
-            <p className="text-gray-600">
-              Can't find what you're looking for? Drop us a message and we'll help you out.
-            </p>
-          </div>
-          
-          <Card className="shadow-xl">
-            <CardContent className="p-8">
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input id="name" placeholder="Enter your full name" />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="Enter your email" />
-                  </div>
-                </div>
-                
-                <div>
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="What's this about?" />
-                </div>
-                
-                <div>
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Describe your issue or question in detail..." 
-                    rows={6}
-                  />
-                </div>
-                
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+
 
       {/* Help Resources */}
       <section className="py-20">
@@ -198,6 +179,91 @@ const Support = () => {
         </div>
       </section>
 
+      {/* Contact Form */}
+<section className="py-20 bg-white">
+  <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-10">
+      <h2 className="text-3xl font-bold text-gray-900 mb-4">Contact Us</h2>
+      <p className="text-gray-600">
+        Fill out the form below and our team will get back to you soon.
+      </p>
+    </div>
+    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <div className="grid md:grid-cols-2 gap-6">
+        <div>
+          <Label htmlFor="name">Full Name</Label>
+          <Input 
+            id="name" 
+            {...form.register("name")} 
+            placeholder="Enter your full name"
+            className={form.formState.errors.name ? "border-red-500" : ""}
+          />
+          {form.formState.errors.name && (
+            <span className="text-red-500 text-sm">{form.formState.errors.name.message}</span>
+          )}
+        </div>
+        <div>
+          <Label htmlFor="email">Email</Label>
+          <Input 
+            id="email" 
+            type="email" 
+            {...form.register("email")}
+            placeholder="Enter your email"
+            className={form.formState.errors.email ? "border-red-500" : ""}
+          />
+          {form.formState.errors.email && (
+            <span className="text-red-500 text-sm">{form.formState.errors.email.message}</span>
+          )}
+        </div>
+      </div>
+      
+      <div>
+        <Label htmlFor="subject">Subject</Label>
+        <Input 
+          id="subject" 
+          {...form.register("subject")}
+          placeholder="What's this about?"
+          className={form.formState.errors.subject ? "border-red-500" : ""}
+        />
+        {form.formState.errors.subject && (
+          <span className="text-red-500 text-sm">{form.formState.errors.subject.message}</span>
+        )}
+      </div>
+      
+      <div>
+        <Label htmlFor="message">Message</Label>
+        <Textarea 
+          id="message" 
+          {...form.register("message")}
+          placeholder="Describe your issue or question in detail..." 
+          rows={6}
+          className={form.formState.errors.message ? "border-red-500" : ""}
+        />
+        {form.formState.errors.message && (
+          <span className="text-red-500 text-sm">{form.formState.errors.message.message}</span>
+        )}
+      </div>
+      
+      {submitError && (
+        <div className="text-red-500 text-sm">{submitError}</div>
+      )}
+      
+      {submitSuccess && (
+        <div className="text-green-500 text-sm">Message sent successfully!</div>
+      )}
+      
+      <Button 
+        type="submit" 
+        className="w-full bg-blue-600 hover:bg-blue-700"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Sending..." : "Send Message"}
+      </Button>
+    </form>
+  </div>
+</section>
+
+
       {/* Support Hours */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -222,7 +288,10 @@ const Support = () => {
           </div>
         </div>
       </section>
-    </div>
+
+
+      <Footer />
+  </div>
   );
 };
 

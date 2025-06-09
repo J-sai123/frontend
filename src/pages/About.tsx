@@ -1,10 +1,14 @@
-
+import { Link } from "react-router-dom";
 import { TrendingUp, Shield, Users, BarChart3 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-white">
+      <Navbar />
+
       {/* Hero Section */}
       <section className="py-20 lg:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -169,6 +173,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
