@@ -11,6 +11,7 @@ import Products from "./pages/Products";
 import Pricing from "./pages/Pricing";
 import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
+import { Helmet } from "react-helmet";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,11 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+       <Helmet>
+        <Helmet>
+  <link rel="png" type="image/png" href="%PUBLIC_URL%/logoImg.png" />
+</Helmet>
+      </Helmet>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

@@ -4,366 +4,147 @@ import { Menu, X, TrendingUp, Shield, Users, BarChart3, PieChart, Smartphone, Gl
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import landingImg from "@/assets/images/landing.png";
+import dittoImg from "@/assets/images/ditto.png";
+import Logo from "@/assets/images/logoImg.png";
+import IMG from "@/assets/images/Img.png"; 
+import Varsity from "@/assets/images/Varsity.png";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 
 const Index = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <div className="flex items-center">
-              <Link to="/" className="flex items-center">
-                <img 
-                  src="https://images.unsplash.com/photo-1500673922987-e212871fec22?w=40&h=40&fit=crop&crop=center" 
-                  alt="Zerodha" 
-                  className="h-8 w-8 rounded"
-                />
-                <span className="ml-2 text-xl font-bold text-blue-600">Zerodha</span>
-              </Link>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/signup" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Signup</Link>
-              <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About</Link>
-              <Link to="/products" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Products</Link>
-              <Link to="/pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Pricing</Link>
-              <Link to="/support" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Support</Link>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button onClick={toggleMenu} className="text-gray-700 hover:text-blue-600">
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-gray-200">
-              <div className="flex flex-col space-y-4">
-                <Link to="/signup" className="text-gray-700 hover:text-blue-600 font-medium">Signup</Link>
-                <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium">About</Link>
-                <Link to="/products" className="text-gray-700 hover:text-blue-600 font-medium">Products</Link>
-                <Link to="/pricing" className="text-gray-700 hover:text-blue-600 font-medium">Pricing</Link>
-                <Link to="/support" className="text-gray-700 hover:text-blue-600 font-medium">Support</Link>
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
-      <section className="py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Invest in <span className="text-blue-600">everything</span>
-              </h1>
-              <p className="mt-6 text-xl text-gray-600 leading-relaxed">
-                Online platform to invest in stocks, derivatives, mutual funds, and more
-              </p>
-              <div className="mt-8">
-                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg" asChild>
-                  <Link to="/signup">Sign up now</Link>
-                </Button>
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <img 
-                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" 
-                alt="Trading Platform" 
-                className="rounded-lg shadow-2xl max-w-full h-auto"
-              />
-            </div>
-          </div>
+      <section className="py-20 text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <img 
+            src={landingImg} 
+            alt="Trading Platform" 
+            className="mx-auto mb-28 max-w-7xl w-full pb-8 md:pb-12 lg:pb-14xl:pb-12"
+          />
+          <h1 className="text-5xl font-bold text-gray-900 mb-4 gap-4">
+            <TrendingUp className="inline-block mr-2" />
+            Invest in everything
+          </h1>
+          <p className="text-xl text-gray-600 mb-8">
+            Online platform to invest in stocks, derivatives, mutual funds, ETFs, bonds, and more.
+          </p>
+          <Link 
+            to="/signup#hero" 
+            className="inline-block bg-[#387ED1] text-white px-6 py-3 rounded hover:bg-blue-700"
+          >
+            Sign up for free
+          </Link>
         </div>
       </section>
 
-      {/* Partners Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Our Trading Platforms</h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-2">
-                <TrendingUp className="w-8 h-8 text-blue-600" />
-              </div>
-              <span className="text-sm font-medium text-gray-700">Kite</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-2">
-                <BarChart3 className="w-8 h-8 text-green-600" />
-              </div>
-              <span className="text-sm font-medium text-gray-700">Console</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-2">
-                <PieChart className="w-8 h-8 text-yellow-600" />
-              </div>
-              <span className="text-sm font-medium text-gray-700">Coin</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-2">
-                <Award className="w-8 h-8 text-purple-600" />
-              </div>
-              <span className="text-sm font-medium text-gray-700">Varsity</span>
-            </div>
-          </div>
+{/* Trust Section */}
+<section className="py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid md:grid-cols-2 gap-16 items-center">
+      {/* Left side content */}
+      <div className="space-y-12">
+        <h2 className="text-4xl font-bold mb-8">Trust with confidence</h2>
+        <div>
+          <h3 className="text-3xl font-semibold mb-4">Customer-first always</h3>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            That's why 1M+ crore customers trust Zerodha with ~ ₹ lakh crores of equity investments and contribute to 15% of daily retail exchange volumes in India.
+          </p>
         </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              India's largest stock broker
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Over 1+ crore Zerodha clients contribute to over 15% of all retail order volumes in India daily by trading and investing in stocks, futures, options, and mutual funds.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">1+ Cr</div>
-              <div className="text-gray-600">Active clients</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">15%</div>
-              <div className="text-gray-600">Market share</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">₹3.5+ Tr</div>
-              <div className="text-gray-600">Annual turnover</div>
-            </div>
-          </div>
+        <div>
+          <h3 className="text-3xl font-semibold mb-4">No spam or gimmicks</h3>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            No gimmicks, spam, "gamification", or annoying push notifications. High-quality apps that you use at your pace, the way you like. Our philosophies.
+          </p>
         </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              Our Products
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Smartphone className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Kite</h3>
-                <p className="text-gray-600">Our ultra-fast flagship trading platform with streaming market data, advanced charts, and an elegant UI.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <BarChart3 className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Console</h3>
-                <p className="text-gray-600">The central dashboard for your Zerodha account. Gain insights into your trades and investments.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <PieChart className="w-8 h-8 text-yellow-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Coin</h3>
-                <p className="text-gray-600">Buy direct mutual funds online, commission-free, delivered directly to your Demat account.</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Varsity</h3>
-                <p className="text-gray-600">An easy to grasp, collection of stock market lessons with in-depth coverage and illustrations.</p>
-              </CardContent>
-            </Card>
-          </div>
+        <div>
+          <h3 className="text-3xl font-semibold mb-4">The Zerodha universe</h3>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Not just an app, but a whole ecosystem. Our investments in 30+ fintech startups offer you tailored services specific to your needs.
+          </p>
         </div>
-      </section>
+      </div>
 
-      {/* Why Us Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              Why choose us?
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Low Cost</h3>
-              <p className="text-gray-600">Free equity delivery and direct mutual funds investments</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Simplicity</h3>
-              <p className="text-gray-600">Clean, intuitive, and easy to use platform</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-yellow-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Trust</h3>
-              <p className="text-gray-600">Regulated by SEBI and member of leading exchanges</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Community</h3>
-              <p className="text-gray-600">Over 1+ crore active traders and investors</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Right side image */}
+      <div className="flex justify-center">
+        <Link to="/products#hero">
+          <img src={IMG} alt="Ditto" className="w-full max-w-2xl " />
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-gray-50">
+<section className="py-20 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid md:grid-cols-2 gap-16 items-center">
+      {/* Left side content */}
+      <div>
+        <h2 className="text-4xl font-bold mb-4">Unbeatable pricing</h2>
+        <p className="text-xl text-gray-600 mb-8">
+          We believe in transparent and fair pricing. No hidden fees, no surprises.
+        </p>
+      </div>
+
+      {/* Right side pricing */}
+      <div className="flex justify-center space-x-16">
+        <div className="text-center">
+          <div className="text-5xl font-bold mb-2">₹0</div>
+          <p className=" textxl text-gray-600">Free equity delivery and<br />direct mutual funds</p>
+        </div>
+        <div className="text-center">
+          <div className="text-5xl font-bold mb-2">₹20</div>
+          <p className=" textxl text-gray-600">Intraday and F&O</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* Education Section */}
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              Transparent pricing
-            </h2>
-            <p className="text-xl text-gray-600">
-              Simple, transparent pricing. No hidden charges.
-            </p>
-          </div>
-          
-          <div className="max-w-4xl mx-auto">
-            <Card className="border-0 shadow-xl">
-              <CardContent className="p-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-green-600 mb-2">₹0</div>
-                    <div className="text-lg font-semibold text-gray-900 mb-2">Equity delivery</div>
-                    <div className="text-gray-600">Free equity delivery and direct mutual funds</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-4xl font-bold text-blue-600 mb-2">₹20</div>
-                    <div className="text-lg font-semibold text-gray-900 mb-2">Intraday and F&O</div>
-                    <div className="text-gray-600">Flat ₹20 or 0.03% (whichever is lower) per executed order</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <img 
+              src={Varsity} 
+              alt="Varsity" 
+              className="w-full max-w-lg"
+            />
+            <div>
+              <h2 className="text-4xl font-bold mb-4">Free and open market education</h2>
+              <p className=" text-xl text-gray-600 mb-4">
+                Varsity, the largest online stock market education book in the world covering everything from the basics to advanced trading.
+              </p>
+              <a href="https://zerodha.com/varsity/" className="text-[#387ED1] hover:underline">Varsity →</a>
+              <p className=" text-xl text-gray-600 mb-2 pt-4">
+              TradingQ&A, the most active trading and investment community in India for all your market related queries              </p>
+            <a href="https://tradingqna.com/" className="text-[#387ED1] hover:underline">TradingQ&A →</a>
+            
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Ready to get started?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Open an account in just 5 minutes and start trading with India's largest stock broker.
-          </p>
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg" asChild>
-            <Link to="/signup">Open an account</Link>
-          </Button>
+      <section className="py-20 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-6xl font-bold mb-4">Open a Zerodha account</h2>
+          <p className="text-2xl text-gray-600 mb-8">Modern platforms and apps, ₹0 investments, and flat ₹20 intraday and F&O trades.</p>
+          <Link 
+            to="/signup#hero" 
+            className="inline-block bg-[#387ED1] text-white px-6 py-3 rounded hover:bg-blue-700"
+          >
+            Sign up for free
+          </Link>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center mb-4">
-                <Link to="/" className="flex items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1500673922987-e212871fec22?w=40&h=40&fit=crop&crop=center" 
-                    alt="Zerodha" 
-                    className="h-8 w-8 rounded"
-                  />
-                  <span className="ml-2 text-xl font-bold text-white">Zerodha</span>
-                </Link>
-              </div>
-              <p className="text-gray-400">
-                India's largest stock broker offering the lowest, most transparent pricing with better customer support.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-white font-semibold mb-4">Company</h3>
-              <ul className="space-y-2">
-                <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
-                <li><Link to="/products" className="text-gray-400 hover:text-white transition-colors">Products</Link></li>
-                <li><Link to="/pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</Link></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-white font-semibold mb-4">Support</h3>
-              <ul className="space-y-2">
-                <li><Link to="/support" className="text-gray-400 hover:text-white transition-colors">Contact us</Link></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Support portal</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Varsity</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-white font-semibold mb-4">Account</h3>
-              <ul className="space-y-2">
-                <li><Link to="/signup" className="text-gray-400 hover:text-white transition-colors">Open an account</Link></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Fund transfer</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">60 day challenge</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm">
-                © 2024 Zerodha. All rights reserved.
-              </p>
-              <div className="flex space-x-4 mt-4 md:mt-0">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy</a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms</a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Disclaimer</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
-};
-
+}
 export default Index;
