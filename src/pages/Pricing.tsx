@@ -6,15 +6,16 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
 const Charges = () => {
+  
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <Navbar />
 
       {/* Hero Section */}
-      <section className="py-20 text-center">
+      <section className="py-40 text-center">
         <div className="container mx-auto ">
-          <h1 className="text-10xl md:text-6xl font-inter,serif text-foreground mb-4 pt-8">
+          <h1 className="text-6xl md:text-7xl font-inter,serif text-foreground mb-4 pt-8">
             Charges
           </h1>
           <p className="text-2xl text-muted-foreground">

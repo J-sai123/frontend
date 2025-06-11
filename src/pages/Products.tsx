@@ -10,18 +10,31 @@ import consoleImg from "@/assets/images/Console.png";
 import coinImg from "@/assets/images/coin.png";
 import kiteconnectImg from "@/assets/images/kiteconnect.png";
 import varsitymobile from "@/assets/images/varsitymobile.png";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import React from 'react';
 
 const Product = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="py-16 text-center">
+      <section id="hero" className="py-40 text-center">
         <div className="container mx-auto px-7 ">
-          <h1 className="text-15xl md:text-5xl font-bold text-foreground mb-8 mt-19  pt-19">
+          <h1 className="text-6xl md:text-7xl font-bold-muted/50 text-foreground mb-8 mt-19  pt-19">
             Zerodha Products
           </h1>
           <p className="text-3xl text-muted-foreground mb-5">

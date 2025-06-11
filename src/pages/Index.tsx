@@ -10,31 +10,12 @@ import Logo from "@/assets/images/logoImg.png";
 import IMG from "@/assets/images/Img.png"; 
 import Varsity from "@/assets/images/Varsity.png";
 import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
-       {/* Navbar */}
-      <nav className="py-6 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <Link to="/" className="flex items-center space-x-3">
-              <img src={Logo} alt="Zerodha" className="h-11 w-11" />
-              <span className="text-2xl font-bold text-blue-600">ZERODHA</span>
-              </Link>
-            <div className="flex items-center space-x-12">
-              <Link to="/signup" className="text-lg text-gray-600 hover:text-gray-900 ">Signup</Link>
-              <Link to="/about" className="text-lg text-gray-600 hover:text-gray-900">About</Link>
-              <Link to="/products" className="text-lg text-gray-600 hover:text-gray-900">Products</Link>
-              <Link to="/pricing" className=" text-lg text-gray-600 hover:text-gray-900">Pricing</Link>
-              <Link to="/support" className=" text-lg text-gray-600 hover:text-gray-900">Support</Link>
-              <button className="text-gray-600 hover:text-gray-900">
-                <Menu size={28} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="py-20 text-center">
@@ -60,35 +41,42 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Trust Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-bold mb-8">Trust with confidence</h2>
-              <div className="space-y-12">
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">Customer-first always</h3>
-                  <p className="textxl text-gray-600">That's why 1M+ crore customers trust Zerodha with ~ ₹ lakh crores of equity investments and contribute to 15% of daily retail exchange volumes in India.</p>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">No spam or gimmicks</h3>
-                  <p className="textxl text-gray-600">No gimmicks, spam, "gamification", or annoying push notifications. High quality apps that you use at your pace, the way you like. Our philosophies.</p>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">The Zerodha universe</h3>
-                  <p className=" textxl text-gray-600">Not just an app, but a whole ecosystem. Our investments in 30+ fintech startups offer you tailored services specific to your needs.</p>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center items-center1">
-              <Link to="/products">
-              <img src= {IMG} alt="Ditto" className="w-full max-w-lg" />
-              </Link>
-            </div>
-          </div>
+{/* Trust Section */}
+<section className="py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid md:grid-cols-2 gap-16 items-center">
+      {/* Left side content */}
+      <div className="space-y-12">
+        <h2 className="text-4xl font-bold mb-8">Trust with confidence</h2>
+        <div>
+          <h3 className="text-3xl font-semibold mb-4">Customer-first always</h3>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            That's why 1M+ crore customers trust Zerodha with ~ ₹ lakh crores of equity investments and contribute to 15% of daily retail exchange volumes in India.
+          </p>
         </div>
-      </section>
+        <div>
+          <h3 className="text-3xl font-semibold mb-4">No spam or gimmicks</h3>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            No gimmicks, spam, "gamification", or annoying push notifications. High-quality apps that you use at your pace, the way you like. Our philosophies.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-3xl font-semibold mb-4">The Zerodha universe</h3>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Not just an app, but a whole ecosystem. Our investments in 30+ fintech startups offer you tailored services specific to your needs.
+          </p>
+        </div>
+      </div>
+
+      {/* Right side image */}
+      <div className="flex justify-center">
+        <Link to="/products#hero">
+          <img src={IMG} alt="Ditto" className="w-full max-w-2xl " />
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Pricing Section */}
 <section className="py-20 bg-gray-50">
