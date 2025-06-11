@@ -1,0 +1,3 @@
+[submodule "submodule/Dashboard"]
+	path = submodule/Dashboard
+	url = https://github.com/J-sai123/Dashboard.git
