@@ -1,7 +1,3 @@
- merge-submodule
-
-
- main
 import { Link } from "react-router-dom";
 import { TrendingUp, Shield, Users, BarChart3 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
