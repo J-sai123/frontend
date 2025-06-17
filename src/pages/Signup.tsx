@@ -8,11 +8,16 @@ import Benefits from '@/assets/images/Benefits.png';
 import { Link } from 'lucide-react';
 import Footer from '@/components/layout/Footer';
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const SignupPage = () => {
+const Signup = () => {
   const location = useLocation();
   const [mobileNumber, setMobileNumber] = useState('');
+  const navigate = useNavigate();
+
+  const handleSignupClick = () => {
+    navigate('/SignupPage' );
+  };
 
   useEffect(() => {
     if (location.hash) {
@@ -21,8 +26,7 @@ const SignupPage = () => {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }, [location]);
-
+  }, [location.hash]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -43,7 +47,7 @@ const SignupPage = () => {
       </section>
 
 {/* Signup Form Section */}
-<section className="py-12 bg-background" >
+
   <div className="container mx-auto px-4">
     <div className="grid md:grid-cols-2 gap-12 items-center">
       {/* Left side image */}
@@ -56,6 +60,7 @@ const SignupPage = () => {
       </div>
 
       {/* Right side signup form */}
+ 
       <div className="bg-white p-10">
         <div className="mb-6">
           <h3 className="text-4xl font-semibold mb-5">Signup now</h3>
@@ -64,28 +69,20 @@ const SignupPage = () => {
           </p>
         </div>
         <div className="space-y-6">
-          <div>
-            <Label htmlFor="mobile" className="text-xl font-medium">+91</Label>
-            <Input
-              id="mobile"
-              type="tel"
-              placeholder="Mobile number"
-              value={mobileNumber}
-              onChange={(e) => setMobileNumber(e.target.value)}
-              className="mt-3"
-            />
-          </div>
-          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-xl rounded-lg">
-            Get OTP
+          <Button
+            onClick={handleSignupClick}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-xl rounded-lg"
+          >
+            Signup
           </Button>
           <p className="text-xs text-muted-foreground text-center">
             By proceeding, I accept the terms and conditions
           </p>
         </div>
       </div>
+      </div>
+  
     </div>
-  </div>
-</section>
 
      {/* Investment Options Section */}
 <section className="py-20 bg-background">
@@ -383,4 +380,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default Signup;
