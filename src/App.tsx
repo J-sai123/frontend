@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import { Helmet } from "react-helmet";
 import SignupPage from "./pages/Signuppage";
 import Login from "./pages/Login";
+import Dashboard from '@/Dashboard/src/components/Dashboard'; 
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/signup" element={<Signup />} />
           <Route path="/Signuppage" element={<SignupPage />} />
           <Route path="/login" element={<Login />} />
+           <Route path="/Dashboard" element={<Dashboard />} />
           {/* ADD ALL CUSTOM ROUTES BELOW THE CATCH-ALL "*" ROUTE */}
           <Route path="/products" element={<Products />} />
           <Route path="/pricing" element={<Pricing />} />

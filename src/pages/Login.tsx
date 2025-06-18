@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
-  const [mobileNumber, setMobileNumber] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
@@ -16,12 +16,12 @@ const Login: React.FC = () => {
         body: JSON.stringify({ mobileNumber, password }),
       });
 
-      const data: { message: string } = await response.json();
+      const data = await response.json();
 
       if (response.ok) {
         alert('Login successful');
-        // Optional: Store token in localStorage/sessionStorage
-        navigate('/dashboard');
+       window.location.href = 'http://192.168.1.6:8081';
+// must match route exactly
       } else {
         alert(data.message || 'Login failed');
       }
@@ -57,10 +57,7 @@ const Login: React.FC = () => {
         />
       </div>
 
-      <button
-        type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
+      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
         Login
       </button>
     </form>
