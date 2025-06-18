@@ -9,8 +9,9 @@ import { Link } from 'lucide-react';
 import Footer from '@/components/layout/Footer';
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-const SignupPage = () => {
+const Signup = () => {
   const location = useLocation();
   const [mobileNumber, setMobileNumber] = useState('');
 
@@ -22,6 +23,12 @@ const SignupPage = () => {
       }
     }
   }, [location]);
+  const navigate = useNavigate();
+
+const handleSignupClick = () => {
+  console.log("navigating");
+  navigate('/SignupPage');
+};
 
 
   return (
@@ -55,7 +62,8 @@ const SignupPage = () => {
         />
       </div>
 
-      {/* Right side signup form */}
+       {/* Right side signup form */}
+ 
       <div className="bg-white p-10">
         <div className="mb-6">
           <h3 className="text-4xl font-semibold mb-5">Signup now</h3>
@@ -64,27 +72,20 @@ const SignupPage = () => {
           </p>
         </div>
         <div className="space-y-6">
-          <div>
-            <Label htmlFor="mobile" className="text-xl font-medium">+91</Label>
-            <Input
-              id="mobile"
-              type="tel"
-              placeholder="Mobile number"
-              value={mobileNumber}
-              onChange={(e) => setMobileNumber(e.target.value)}
-              className="mt-3"
-            />
-          </div>
-          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-xl rounded-lg">
-            Get OTP
+          <Button
+            onClick={handleSignupClick}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-xl rounded-lg"
+          >
+            Signup
           </Button>
           <p className="text-xs text-muted-foreground text-center">
             By proceeding, I accept the terms and conditions
           </p>
         </div>
       </div>
+      </div>
+  
     </div>
-  </div>
 </section>
 
      {/* Investment Options Section */}
@@ -383,4 +384,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default Signup;

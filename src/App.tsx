@@ -12,6 +12,8 @@ import Pricing from "./pages/Pricing";
 import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 import { Helmet } from "react-helmet";
+import SignupPage from "./pages/Signuppage";
+import Login from "./pages/Login";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/Signuppage" element={<SignupPage />} />
+          <Route path="/login" element={<Login />} />
+          {/* ADD ALL CUSTOM ROUTES BELOW THE CATCH-ALL "*" ROUTE */}
           <Route path="/products" element={<Products />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/support" element={<Support />} />
