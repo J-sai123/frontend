@@ -20,7 +20,7 @@ const Login: React.FC = () => {
 
       if (response.ok) {
         alert('Login successful');
-       window.location.href = 'http://192.168.1.6:8081';
+       window.location.href = 'http://172.20.10.10:8081';
 // must match route exactly
       } else {
         alert(data.message || 'Login failed');
